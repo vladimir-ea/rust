@@ -2514,16 +2514,15 @@ fn get_apple_sdk_root(sdk_name: &str) -> Result<String, String> {
             "watchos"
                 if sdkroot.contains("WatchSimulator.platform")
                     || sdkroot.contains("MacOSX.platform") => {}
-            "watchimulator"
-                if sdkroot.contains("WatchOS.platform")
-                    || sdkroot.contains("MacOSX.platform") => {}
+            "watchsimulator"
+                if sdkroot.contains("WatchOS.platform") || sdkroot.contains("MacOSX.platform") => {}
             // Ignore `SDKROOT` if it's not a valid path.
             _ if !p.is_absolute() || p == Path::new("/") || !p.exists() => {}
             _ => return Ok(sdkroot),
         }
     }
     let res =
-        Command::new("xcrun").arg("--show-sdk-path").arg("-sdk").arg(sdk_name).output().and_then(
+        Command::new("xcrunp").arg("--show-sdk-path").arg("-sdk").arg(sdk_name).output().and_then(
             |output| {
                 if output.status.success() {
                     Ok(String::from_utf8(output.stdout).unwrap())

@@ -58,7 +58,7 @@ extern "C" {
     )]
     #[cfg_attr(any(target_os = "solaris", target_os = "illumos"), link_name = "___errno")]
     #[cfg_attr(
-        any(target_os = "macos", target_os = "ios",  target_os = "watchos", target_os = "freebsd"),
+        any(target_os = "macos", target_os = "ios", target_os = "watchos", target_os = "freebsd"),
         link_name = "__error"
     )]
     #[cfg_attr(target_os = "haiku", link_name = "_errnop")]

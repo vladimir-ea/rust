@@ -41,7 +41,9 @@ filetime = "0.2"
 num_cpus = "1.0"
 getopts = "0.2.19"
 cc = "1.0.68"
+# cc = { path = "/Users/dimir/repos/cc-rs"}
 libc = "0.2"
+# libc = { path = "/Users/dimir/repos/libc"}
 serde = { version = "1.0.8", features = ["derive"] }
 serde_json = "1.0.2"
 toml = "0.5"

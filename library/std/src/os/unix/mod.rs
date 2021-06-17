@@ -50,8 +50,6 @@ mod platform {
     pub use crate::os::illumos::*;
     #[cfg(target_os = "ios")]
     pub use crate::os::ios::*;
-    #[cfg(target_os = "watchos")]
-    pub use crate::os::watchos::*;
     #[cfg(any(target_os = "linux", target_os = "l4re"))]
     pub use crate::os::linux::*;
     #[cfg(target_os = "macos")]
@@ -66,6 +64,8 @@ mod platform {
     pub use crate::os::solaris::*;
     #[cfg(target_os = "vxworks")]
     pub use crate::os::vxworks::*;
+    #[cfg(target_os = "watchos")]
+    pub use crate::os::watchos::*;
 }
 
 pub mod ffi;

@@ -14,6 +14,7 @@ term = { path = "../term" }
 std = { path = "../std" }
 core = { path = "../core" }
 libc = { version = "0.2", default-features = false }
+#libc = { path = "/Users/dimir/repos/libc", default-features = false }
 panic_unwind = { path = "../panic_unwind" }
 panic_abort = { path = "../panic_abort" }
 
