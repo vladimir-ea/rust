@@ -58,7 +58,7 @@ extern "C" {
     )]
     #[cfg_attr(any(target_os = "solaris", target_os = "illumos"), link_name = "___errno")]
     #[cfg_attr(
-        any(target_os = "macos", target_os = "ios", target_os = "freebsd"),
+        any(target_os = "macos", target_os = "ios",  target_os = "watchos", target_os = "freebsd"),
         link_name = "__error"
     )]
     #[cfg_attr(target_os = "haiku", link_name = "_errnop")]
@@ -342,7 +342,7 @@ pub fn current_exe() -> io::Result<PathBuf> {
     }
 }
 
-#[cfg(any(target_os = "macos", target_os = "ios"))]
+#[cfg(any(target_os = "macos", target_os = "ios", target_os = "watchos"))]
 pub fn current_exe() -> io::Result<PathBuf> {
     extern "C" {
         fn _NSGetExecutablePath(buf: *mut libc::c_char, bufsize: *mut u32) -> libc::c_int;
@@ -584,6 +584,7 @@ pub fn home_dir() -> Option<PathBuf> {
     #[cfg(any(
         target_os = "android",
         target_os = "ios",
+        target_os = "watchos",
         target_os = "emscripten",
         target_os = "redox",
         target_os = "vxworks"
@@ -594,6 +595,7 @@ pub fn home_dir() -> Option<PathBuf> {
     #[cfg(not(any(
         target_os = "android",
         target_os = "ios",
+        target_os = "watchos",
         target_os = "emscripten",
         target_os = "redox",
         target_os = "vxworks"

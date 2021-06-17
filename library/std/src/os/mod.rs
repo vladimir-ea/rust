@@ -90,6 +90,8 @@ mod imp {
     pub mod illumos;
     #[cfg(target_os = "ios")]
     pub mod ios;
+    #[cfg(target_os = "watchos")]
+    pub mod watchos;
     #[cfg(target_os = "l4re")]
     pub mod linux;
     #[cfg(target_os = "linux")]

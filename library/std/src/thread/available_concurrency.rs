@@ -73,6 +73,7 @@ cfg_if::cfg_if! {
         target_os = "emscripten",
         target_os = "fuchsia",
         target_os = "ios",
+        target_os = "watchos",
         target_os = "linux",
         target_os = "macos",
         target_os = "solaris",

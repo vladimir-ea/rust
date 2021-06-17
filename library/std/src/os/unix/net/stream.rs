@@ -20,6 +20,7 @@ use crate::os::unix::io::{AsRawFd, FromRawFd, IntoRawFd, RawFd};
     target_os = "dragonfly",
     target_os = "freebsd",
     target_os = "ios",
+    target_os = "watchos",
     target_os = "macos",
     target_os = "openbsd"
 ))]
@@ -37,6 +38,7 @@ use crate::time::Duration;
     target_os = "dragonfly",
     target_os = "freebsd",
     target_os = "ios",
+    target_os = "watchos",
     target_os = "macos",
     target_os = "openbsd"
 ))]
@@ -207,6 +209,7 @@ impl UnixStream {
         target_os = "dragonfly",
         target_os = "freebsd",
         target_os = "ios",
+        target_os = "watchos",
         target_os = "macos",
         target_os = "openbsd"
     ))]

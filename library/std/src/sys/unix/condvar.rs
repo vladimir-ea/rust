@@ -28,6 +28,7 @@ impl Condvar {
     #[cfg(any(
         target_os = "macos",
         target_os = "ios",
+        target_os = "watchos",
         target_os = "l4re",
         target_os = "android",
         target_os = "redox"
@@ -37,6 +38,7 @@ impl Condvar {
     #[cfg(not(any(
         target_os = "macos",
         target_os = "ios",
+        target_os = "watchos",
         target_os = "l4re",
         target_os = "android",
         target_os = "redox"
@@ -76,7 +78,7 @@ impl Condvar {
     // where we configure condition variable to use monotonic clock (instead of
     // default system clock). This approach avoids all problems that result
     // from changes made to the system time.
-    #[cfg(not(any(target_os = "macos", target_os = "ios", target_os = "android")))]
+    #[cfg(not(any(target_os = "macos", target_os = "ios", target_os = "android", target_os = "watchos")))]
     pub unsafe fn wait_timeout(&self, mutex: &Mutex, dur: Duration) -> bool {
         use crate::mem;
 
@@ -103,7 +105,7 @@ impl Condvar {
     // This implementation is modeled after libcxx's condition_variable
     // https://github.com/llvm-mirror/libcxx/blob/release_35/src/condition_variable.cpp#L46
     // https://github.com/llvm-mirror/libcxx/blob/release_35/include/__mutex_base#L367
-    #[cfg(any(target_os = "macos", target_os = "ios", target_os = "android"))]
+    #[cfg(any(target_os = "macos", target_os = "ios", target_os = "android", target_os = "watchos"))]
     pub unsafe fn wait_timeout(&self, mutex: &Mutex, mut dur: Duration) -> bool {
         use crate::ptr;
         use crate::time::Instant;
