@@ -127,7 +127,7 @@ pub mod haiku;
 pub mod horizon;
 #[cfg(target_os = "illumos")]
 pub mod illumos;
-#[cfg(any(target_os = "ios", target_os = "watchos"))]
+#[cfg(target_os = "ios")]
 pub mod ios;
 #[cfg(target_os = "l4re")]
 pub mod l4re;
@@ -145,6 +145,8 @@ pub mod solaris;
 pub mod solid;
 #[cfg(target_os = "vxworks")]
 pub mod vxworks;
+#[cfg(target_os = "watchos")]
+pub mod watchos;
 
 #[cfg(any(unix, target_os = "wasi", doc))]
 mod fd;
